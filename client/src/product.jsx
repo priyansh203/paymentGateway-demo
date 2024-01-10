@@ -18,7 +18,22 @@ function Product() {
             }
         });
         const order = await response.json();
-        console.log(order);
+        console.log(order,"product");
+        // {
+        //     id: 'order_NFRLZPHZHrz6Es',
+        //     entity: 'order',
+        //     amount: 500,
+        //     amount_paid: 0,
+        //     amount_due: 500,
+        //     currency: 'INR',
+        //     receipt: 'dfa',
+        //     offer_id: null,
+        //     status: 'created',
+        //     attempts: 0,
+        //     notes: [],
+        //     created_at: 1703258801
+        // }
+          
 
         var options = {
             "key": "rzp_test_cpQCkptOoWacuj", // Enter the Key ID generated from the Dashboard
@@ -29,7 +44,9 @@ function Product() {
             "image": "https://example.com/your_logo",
             "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
             "handler": async function (response){
+
                 const body = {...response};
+                console.log(body);
                 const validateRes = await fetch("http://localhost:5003/order/validate",{
                     method: "POST",
                     body: JSON.stringify(body), //stringify is used to convert js Object to JSON string
@@ -76,6 +93,7 @@ function Product() {
             <h1>Pay 500 INR</h1>
             <button className='btn btn-primary btn-lg' onClick={paymentHandler}>Pay</button>
         </center>
+
      );
 }
 
