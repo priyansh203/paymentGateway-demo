@@ -47,7 +47,7 @@ function Product() {
 
                 const body = {...response};
                 console.log(body);
-                const validateRes = await fetch("https://62fa-2401-4900-1f3f-785e-b40e-ab4-81b3-c582.ngrok-free.app/validate",{
+                const validateRes = await fetch("https://62fa-2401-4900-1f3f-785e-b40e-ab4-81b3-c582.ngrok-free.app/order/validate",{
                     method: "POST",
                     body: JSON.stringify(body), //stringify is used to convert js Object to JSON string
                     headers:{ //header contain additional info about request
